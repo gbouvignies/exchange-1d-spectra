@@ -1,0 +1,12 @@
+name: Exchange1DSpectra
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3
+  - ipympl
+  - jupyterlab
+  - scipy
+  - numpy
+  - ipywidgets
+  - matplotlib
