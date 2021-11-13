@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import numpy as np
 from scipy.linalg import eig
 
@@ -23,12 +25,12 @@ def compute_liouvillian(
     return L
 
 
-def get_spectral_components(L: np.ndarray, pb: float):
+def get_spectral_components(L: np.ndarray, pb: float) -> list[tuple[float, float, float, float]]:
     """
     Compute the spectral components from the Liouvillian matrix.
     """
     eigen_values, eigen_vectors = eig(L)
-    r2_values = -eigen_values.real
+    r2_values = -1.0 * eigen_values.real
     frq_values = eigen_values.imag
 
     pa = 1.0 - pb
