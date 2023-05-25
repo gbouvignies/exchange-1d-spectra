@@ -10,8 +10,8 @@ def compute_liouvillian(
     b0: float,
     pb: float,
     kex: float,
-    wa_ppm: float,
-    wb_ppm: float,
+    δa: float,
+    δb: float,
     r2a: float,
     r2b: float,
 ) -> np.ndarray:
@@ -22,8 +22,8 @@ def compute_liouvillian(
     kab = kex * pb
     kba = kex * pa
 
-    wa_rads = GAMMA_N15 * b0 * wa_ppm * 1e-6
-    wb_rads = GAMMA_N15 * b0 * wb_ppm * 1e-6
+    wa_rads = GAMMA_N15 * b0 * δa * 1e-6
+    wb_rads = GAMMA_N15 * b0 * δb * 1e-6
 
     liouvillian = np.zeros((2, 2), dtype=complex)
     liouvillian[0, 0] = -r2a - kab + 1j * wa_rads
